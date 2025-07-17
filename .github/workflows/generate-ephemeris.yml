@@ -1,0 +1,59 @@
+name: Generate Daily Ephemeris
+
+on:
+  # Ejecutar diariamente a las 8:00 AM UTC (10:00 AM CEST)
+  schedule:
+    - cron: "0 8 * * *"
+
+  # Permitir ejecución manual desde GitHub
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Número de días a generar (default: 1)"
+        required: false
+        default: "1"
+        type: string
+
+jobs:
+  generate-ephemeris:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate ephemeris for tomorrow
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.days }}" ]; then
+            echo "🚀 Generating ephemeris for ${{ github.event.inputs.days }} days..."
+            node generate-ephemeris.mjs multiple ${{ github.event.inputs.days }}
+          else
+            echo "📅 Generating ephemeris for tomorrow..."
+            node generate-ephemeris.mjs tomorrow
+          fi
+
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "✅ Ephemeris generation completed successfully!"
+          echo "📊 Check the logs above for details."
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Ephemeris generation failed!"
+          echo "🔍 Check the logs above for error details."
+          exit 1

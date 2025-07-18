@@ -1,21 +1,44 @@
 # 🌟 Astronomy Ephemeris
 
-Una aplicación web moderna que muestra efemérides astronómicas diarias generadas automáticamente con Inteligencia Artificial.
+Una aplicación web moderna que muestra **efemérides astronómicas diarias en español** generadas automáticamente con Inteligencia Artificial. El sistema crea contenido educativo sobre astronomía, exploración espacial y descubrimientos importantes, con un máximo de 200 palabras por efeméride.
 
-## ✨ Características
+## ✨ Características Principales
 
-- 📅 **Efemérides diarias**: Eventos astronómicos únicos para cada día
-- 🤖 **Generación automática con IA**: Utiliza OpenAI para crear contenido educativo
-- 🚀 **Automatización con GitHub Actions**: Genera contenido automáticamente cada día
+- 📅 **Efemérides diarias automatizadas**: Eventos astronómicos únicos para cada día
+- 🤖 **Generación con IA**: Utiliza OpenAI GPT-4o-mini para crear contenido educativo
+- ⏰ **GitHub Actions**: Ejecuta automáticamente todos los días a las 8:00 AM UTC
+- 🇪🇸 **Contenido en español**: Lenguaje científico apropiado pero accesible
 - 💾 **Base de datos Supabase**: Almacenamiento confiable y escalable
 - 🎨 **Interfaz moderna**: Diseño elegante con Next.js y Tailwind CSS
 - 🌙 **Tema astronómico**: Animaciones y efectos visuales inmersivos
 
-## 🖥️ Vista previa
+## 🤖 Sistema de Automatización
+
+### ⏰ Generación Automática Diaria
+
+- **Frecuencia**: Todos los días a las **8:00 AM UTC** (10:00 AM España)
+- **Contenido**: Una efeméride astronómica para el día siguiente
+- **Longitud**: Máximo 200 palabras en español
+- **Temas**: Astronomía, exploración espacial, descubrimientos
+
+### 🎮 Ejecución Manual
+
+También puedes generar efemérides manualmente:
+
+- Ve a **GitHub Actions** en tu repositorio
+- Ejecuta **"🌟 Generate Daily Astronomy Ephemeris"**
+- Elige entre diferentes modos: `tomorrow`, `week`, `month`, `multiple`
+
+### 📚 Documentación Completa
+
+- **[� Guía de GitHub Actions](./GITHUB_ACTIONS_GUIDE.md)** - Tutorial completo del sistema automatizado
+- **[⚙️ Configuración Inicial](./GITHUB_ACTIONS_SETUP.md)** - Setup de secrets y variables
+
+## �🖥️ Vista previa
 
 La aplicación muestra efemérides en el formato:
 
-> **"El 17 de julio de 1969, evento astronómico notable donde Venus y Marte aparecen muy cerca en el cielo nocturno"**
+> **"Conjunción de Venus y Marte (2025) - Evento astronómico donde Venus y Marte aparecen muy cerca en el cielo nocturno, ofreciendo una excelente oportunidad de observación para astrónomos aficionados desde el hemisferio norte."**
 
 ## 🚀 Inicio rápido
 
@@ -61,24 +84,64 @@ La aplicación muestra efemérides en el formato:
    npm run dev
    ```
 
-## 🤖 Generación automática de efemérides
+## 🌌 Tipos de Efemérides Generadas
 
-### Configuración de GitHub Actions
+El sistema de IA crea contenido educativo sobre:
 
-Para automatizar la generación diaria de efemérides, sigue las instrucciones detalladas en:
-**[📖 GITHUB_ACTIONS_SETUP.md](./GITHUB_ACTIONS_SETUP.md)**
+### 🚀 **Exploración Espacial**
 
-### Comandos manuales
+- Lanzamientos históricos de misiones espaciales
+- Alunizajes y caminatas espaciales
+- Misiones a planetas y asteroides
+- Aniversarios de la NASA, ESA y otras agencias
+
+### 🌟 **Fenómenos Astronómicos**
+
+- Conjunciones planetarias y oposiciones
+- Eclipses solares y lunares
+- Lluvias de meteoros (Perseidas, Leónidas, etc.)
+- Apariciones de cometas
+
+### 🔭 **Descubrimientos Importantes**
+
+- Hallazgo de exoplanetas
+- Descubrimientos del Telescopio Hubble y James Webb
+- Ondas gravitacionales y agujeros negros
+- Nuevas lunas y asteroides
+
+### 🏛️ **Aniversarios Científicos**
+
+- Inauguración de observatorios importantes
+- Lanzamiento de telescopios espaciales
+- Fundación de instituciones astronómicas
+- Premios Nobel en Física relacionados con astronomía
+
+## 🤖 Configuración del Sistema Automático
+
+### 🔑 Secrets Requeridos en GitHub
+
+Para que el sistema funcione automáticamente, configura estos secrets:
+
+| Secret                          | Descripción                            | Dónde obtenerlo                                         |
+| ------------------------------- | -------------------------------------- | ------------------------------------------------------- |
+| `OPENAI_API_KEY`                | Clave de OpenAI para generar contenido | [OpenAI Platform](https://platform.openai.com/api-keys) |
+| `NEXT_PUBLIC_SUPABASE_URL`      | URL de tu proyecto Supabase            | Panel de Supabase > Settings > API                      |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave anónima de Supabase              | Panel de Supabase > Settings > API                      |
+
+### 📝 Comandos Disponibles
 
 ```bash
-# Generar efeméride para mañana
+# Generar efeméride para mañana (automático diario)
 node generate-ephemeris.mjs tomorrow
 
-# Generar para múltiples días
+# Generar para múltiples días específicos
 node generate-ephemeris.mjs multiple 7
 
-# Generar para una semana
+# Generar para una semana completa
 node generate-ephemeris.mjs week
+
+# Generar para un mes completo
+node generate-ephemeris.mjs month
 ```
 
 ## 🏗️ Arquitectura

@@ -50,12 +50,6 @@ export default async function Home() {
             <span>Una nueva efeméride cada día</span>
             <div className="w-2 h-2 rounded-full bg-slate-600 animate-pulse" style={{ animationDelay: "0.5s" }} />
           </div>
-
-          <div className="mt-4 pt-4 border-t border-slate-700">
-            <p className="text-slate-400 text-xs">
-              © 2025 <a href="https://astrotenerife.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors underline">IvBanzaga by Iván Bazaga</a>
-            </p>
-          </div>
         </footer>
       </div>
     </main>

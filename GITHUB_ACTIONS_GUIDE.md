@@ -7,11 +7,13 @@ Este proyecto utiliza **GitHub Actions** para generar automáticamente efemérid
 ## ⏰ Programación Automática
 
 ### 🕐 Ejecución Diaria
+
 - **Hora**: Todos los días a las **8:00 AM UTC** (10:00 AM hora de España)
 - **Frecuencia**: Automática, 365 días al año
 - **Contenido**: Genera una efeméride para el día siguiente
 
 ### 📅 Ubicación del Workflow
+
 ```
 .github/workflows/generate-ephemeris.yml
 ```
@@ -30,31 +32,33 @@ Puedes ejecutar el workflow manualmente desde GitHub:
 
 ### 🔧 Modos de Ejecución
 
-| Modo | Descripción | Ejemplo |
-|------|-------------|---------|
+| Modo       | Descripción                    | Ejemplo                     |
+| ---------- | ------------------------------ | --------------------------- |
 | `tomorrow` | Genera 1 efeméride para mañana | Ejecución diaria automática |
-| `week` | Genera 7 efemérides | Llenar una semana |
-| `month` | Genera 30 efemérides | Llenar un mes |
-| `multiple` | Genera N efemérides | Número personalizado |
+| `week`     | Genera 7 efemérides            | Llenar una semana           |
+| `month`    | Genera 30 efemérides           | Llenar un mes               |
+| `multiple` | Genera N efemérides            | Número personalizado        |
 
 ## 🔑 Configuración de Secrets
 
 Para que funcione, necesitas configurar estos secrets en GitHub:
 
 ### 📍 Cómo configurar secrets:
+
 1. **Ve a Settings > Secrets and variables > Actions**
 2. **Haz clic en "New repository secret"**
 3. **Agrega estos tres secrets:**
 
-| Secret | Descripción | Dónde obtenerlo |
-|--------|-------------|-----------------|
-| `OPENAI_API_KEY` | Tu clave de OpenAI | [OpenAI Platform](https://platform.openai.com/api-keys) |
-| `NEXT_PUBLIC_SUPABASE_URL` | URL de tu proyecto Supabase | Panel de Supabase |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave anónima de Supabase | Panel de Supabase |
+| Secret                          | Descripción                 | Dónde obtenerlo                                         |
+| ------------------------------- | --------------------------- | ------------------------------------------------------- |
+| `OPENAI_API_KEY`                | Tu clave de OpenAI          | [OpenAI Platform](https://platform.openai.com/api-keys) |
+| `NEXT_PUBLIC_SUPABASE_URL`      | URL de tu proyecto Supabase | Panel de Supabase                                       |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave anónima de Supabase   | Panel de Supabase                                       |
 
 ## 📊 Monitoreo y Logs
 
 ### ✅ Verificar que funciona:
+
 1. **Pestaña Actions**: Ve el historial de ejecuciones
 2. **Logs detallados**: Cada step muestra información clara
 3. **Base de datos**: Verifica que aparecen nuevas efemérides
@@ -63,12 +67,14 @@ Para que funcione, necesitas configurar estos secrets en GitHub:
 ### 🚨 Solución de problemas:
 
 #### ❌ Errores comunes:
+
 - **Secret no configurado**: Revisa que todos los secrets estén correctos
 - **Límite de OpenAI**: Verifica que tienes créditos disponibles
 - **Error de Supabase**: Comprueba la conexión a la base de datos
 - **Duplicados**: El sistema evita crear efemérides duplicadas
 
 #### 🔍 Cómo debuggear:
+
 1. **Ve a Actions > [Ejecución fallida]**
 2. **Expande el step que falló**
 3. **Lee los logs detallados**
@@ -77,12 +83,14 @@ Para que funcione, necesitas configurar estos secrets en GitHub:
 ## 🎯 Características del Contenido
 
 ### 📝 Especificaciones:
+
 - **Idioma**: Español
 - **Longitud**: Máximo 200 palabras
 - **Formato**: "[Título] - [Descripción educativa]"
 - **Temas**: Astronomía, exploración espacial, descubrimientos
 
 ### 🌌 Tipos de efemérides:
+
 - 🚀 **Exploración espacial**: Lanzamientos, misiones, alunizajes
 - 🌟 **Fenómenos astronómicos**: Conjunciones, eclipses, meteoros
 - 🔭 **Descubrimientos**: Hitos importantes en astronomía
@@ -92,6 +100,7 @@ Para que funcione, necesitas configurar estos secrets en GitHub:
 ## 🛠️ Archivos Importantes
 
 ### 📁 Estructura:
+
 ```
 .github/workflows/
   └── generate-ephemeris.yml     # Workflow principal
@@ -101,6 +110,7 @@ GITHUB_ACTIONS_SETUP.md         # Configuración inicial
 ```
 
 ### 🔄 Flujo de trabajo:
+
 1. **Trigger**: Cron o manual
 2. **Setup**: Node.js + dependencias
 3. **Validación**: Variables de entorno
@@ -122,6 +132,7 @@ GITHUB_ACTIONS_SETUP.md         # Configuración inicial
 ## 🆘 Soporte
 
 Si tienes problemas:
+
 1. **Revisa los logs** en la pestaña Actions
 2. **Verifica los secrets** en Settings
 3. **Comprueba los créditos** de OpenAI

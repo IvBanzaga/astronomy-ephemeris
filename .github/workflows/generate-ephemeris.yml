@@ -67,7 +67,7 @@ jobs:
           echo "🚀 Starting ephemeris generation..."
           echo "📅 Current date: $(date)"
           echo "🌍 Timezone: UTC"
-          
+
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             MODE="${{ github.event.inputs.mode }}"
             DAYS="${{ github.event.inputs.days }}"

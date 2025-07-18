@@ -47,11 +47,13 @@ REQUISITOS IMPORTANTES:
 4. El formato debe ser: "[Título del evento] - [Descripción educativa de 1-2 oraciones]"
 5. Incluye el año histórico cuando sea relevante
 6. La descripción debe ser interesante y educativa
+7. MÁXIMO 200 PALABRAS en total
+8. Escribe EXCLUSIVAMENTE en español con vocabulario científico apropiado
 
 EJEMPLOS de buenos formatos:
-- "Conjunción de Venus y Marte - Evento astronómico donde Venus y Marte aparecen muy cerca en el cielo nocturno, ofreciendo una excelente oportunidad de observación"
-- "Alunizaje del Apollo 11 - Neil Armstrong y Buzz Aldrin se convirtieron en los primeros humanos en caminar sobre la superficie lunar"
-- "Lluvia de meteoros Perseidas - Máximo de actividad de esta lluvia de meteoros originada por los restos del cometa Swift-Tuttle"
+- "Conjunción de Venus y Marte - Evento astronómico donde Venus y Marte aparecen muy cerca en el cielo nocturno, ofreciendo una excelente oportunidad de observación para astrónomos aficionados"
+- "Alunizaje del Apollo 11 (1969) - Neil Armstrong y Buzz Aldrin se convirtieron en los primeros humanos en caminar sobre la superficie lunar, marcando un hito histórico en la exploración espacial"
+- "Lluvia de meteoros Perseidas - Máximo de actividad de esta lluvia de meteoros originada por los restos del cometa Swift-Tuttle, visible desde el hemisferio norte"
 
 TIPOS DE EVENTOS que puedes usar:
 - Eventos de exploración espacial (lanzamientos, alunizajes, misiones)
@@ -60,7 +62,7 @@ TIPOS DE EVENTOS que puedes usar:
 - Aniversarios de observatorios o telescopios importantes
 - Eventos relacionados con planetas, asteroides, cometas
 
-Responde SOLO con el evento en el formato solicitado, sin explicaciones adicionales.
+Responde SOLO con el evento en el formato solicitado, sin explicaciones adicionales. Asegúrate de que sea educativo y no exceda 200 palabras.
 `
 
   try {
@@ -71,14 +73,14 @@ Responde SOLO con el evento en el formato solicitado, sin explicaciones adiciona
       messages: [
         {
           role: "system",
-          content: "Eres un experto en astronomía e historia espacial. Generas efemérides astronómicas precisas y educativas."
+          content: "Eres un experto en astronomía e historia espacial que genera efemérides astronómicas precisas y educativas en español. Siempre respetas el límite de 200 palabras máximo y usas un lenguaje científico apropiado pero accesible."
         },
         {
           role: "user",
           content: prompt
         }
       ],
-      max_tokens: 200,
+      max_tokens: 150, // Reducido para asegurar que no exceda 200 palabras
       temperature: 0.7,
     })
 

@@ -1,11 +1,12 @@
 name: 🌟 Generate Daily Astronomy Ephemeris
 
 on:
+  # ⚠️ DESACTIVADO - Sin créditos de OpenAI
   # Ejecutar diariamente a las 8:00 AM UTC (10:00 AM CEST)
-  schedule:
-    - cron: "0 8 * * *"
+  # schedule:
+  #   - cron: "0 8 * * *"
 
-  # Permitir ejecución manual desde GitHub
+  # Permitir ejecución manual desde GitHub (mantener para cuando tengas créditos)
   workflow_dispatch:
     inputs:
       days:

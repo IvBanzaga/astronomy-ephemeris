@@ -48,6 +48,8 @@ La aplicación muestra efemérides en el formato:
 - Cuenta de Supabase
 - API Key de OpenAI (para generación automática)
 
+````
+
 ### Instalación local
 
 1. **Clona el repositorio**
@@ -55,7 +57,7 @@ La aplicación muestra efemérides en el formato:
    ```bash
    git clone <tu-repositorio>
    cd astronomy-ephemeris
-   ```
+````
 
 2. **Instala dependencias**
 
